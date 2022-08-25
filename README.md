@@ -20,7 +20,7 @@ devtools::install_github("junjunlab/jjPlot")
 
 ## Example
 
-An eaxmple shows here:
+EaxmpleS showed here:
 
 ![image](https://user-images.githubusercontent.com/64965509/184105867-6d4cb403-35c4-441f-bc03-78820ca7eab4.png)
 
