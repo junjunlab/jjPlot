@@ -2,92 +2,92 @@
 # draw legend function
 
 # full legend
-#' @export
-draw_key_violinFull <- function(data, params, size) {
-  if (is.null(data$size)) {
-    data$size <- 0.5
-  }
-
-  lwd <- min(data$size, min(size) / 4)
-
-  d <- stats::density(rep(0,20))
-  grid::grid.polygon(y = c(scales::rescale(d$x,to = c(0,1)),
-                           rev(scales::rescale(d$x,to = c(0,1)))),
-                     x = c(0.5 - scales::rescale(d$y,to = c(0,0.5)),
-                           rev(scales::rescale(d$y,to = c(0,0.5)) + 0.5)),
-                     gp = grid::gpar(
-                       col = ggplot2::alpha(data$colour %||% "black", data$alpha),
-                       fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
-                       lty = data$linetype %||% 1,
-                       lwd = lwd * .pt))
-}
+# #' @export
+# draw_key_violinFull <- function(data, params, size) {
+#   if (is.null(data$size)) {
+#     data$size <- 0.5
+#   }
+#
+#   lwd <- min(data$size, min(size) / 4)
+#
+#   d <- stats::density(rep(0,20))
+#   grid::grid.polygon(y = c(scales::rescale(d$x,to = c(0,1)),
+#                            rev(scales::rescale(d$x,to = c(0,1)))),
+#                      x = c(0.5 - scales::rescale(d$y,to = c(0,0.5)),
+#                            rev(scales::rescale(d$y,to = c(0,0.5)) + 0.5)),
+#                      gp = grid::gpar(
+#                        col = ggplot2::alpha(data$colour %||% "black", data$alpha),
+#                        fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
+#                        lty = data$linetype %||% 1,
+#                        lwd = lwd * .pt))
+# }
 
 # split legend
-#' @export
-draw_key_violinSplit <- function(data, params, size) {
-  if (is.null(data$size)) {
-    data$size <- 0.5
-  }
-
-  lwd <- min(data$size, min(size) / 4)
-
-  d <- stats::density(rep(0,20))
-  left <- grid::grid.polygon(y = scales::rescale(d$x,to = c(0,1)),
-                             x = 0.5 - scales::rescale(d$y,to = c(0,0.5)) - 0.08,
-                             gp = grid::gpar(
-                               col = ggplot2::alpha(data$colour %||% "black", data$alpha),
-                               fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
-                               lty = data$linetype %||% 1,
-                               lwd = lwd * .pt))
-
-  right <- grid::grid.polygon(y = rev(scales::rescale(d$x,to = c(0,1))),
-                              x = rev(scales::rescale(d$y,to = c(0,0.5)) + 0.5 + 0.08),
-                              gp = grid::gpar(
-                                col = ggplot2::alpha(data$colour %||% "black", data$alpha),
-                                fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
-                                lty = data$linetype %||% 1,
-                                lwd = lwd * .pt))
-  # combine
-  grid::gTree(children = grid::gList(left,right))
-}
+# #' @export
+# draw_key_violinSplit <- function(data, params, size) {
+#   if (is.null(data$size)) {
+#     data$size <- 0.5
+#   }
+#
+#   lwd <- min(data$size, min(size) / 4)
+#
+#   d <- stats::density(rep(0,20))
+#   left <- grid::grid.polygon(y = scales::rescale(d$x,to = c(0,1)),
+#                              x = 0.5 - scales::rescale(d$y,to = c(0,0.5)) - 0.08,
+#                              gp = grid::gpar(
+#                                col = ggplot2::alpha(data$colour %||% "black", data$alpha),
+#                                fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
+#                                lty = data$linetype %||% 1,
+#                                lwd = lwd * .pt))
+#
+#   right <- grid::grid.polygon(y = rev(scales::rescale(d$x,to = c(0,1))),
+#                               x = rev(scales::rescale(d$y,to = c(0,0.5)) + 0.5 + 0.08),
+#                               gp = grid::gpar(
+#                                 col = ggplot2::alpha(data$colour %||% "black", data$alpha),
+#                                 fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
+#                                 lty = data$linetype %||% 1,
+#                                 lwd = lwd * .pt))
+#   # combine
+#   grid::gTree(children = grid::gList(left,right))
+# }
 
 # left legend
-#' @export
-draw_key_violinLeft <- function(data, params, size) {
-  if (is.null(data$size)) {
-    data$size <- 0.5
-  }
-
-  lwd <- min(data$size, min(size) / 4)
-
-  d <- stats::density(rep(0,20))
-  grid::grid.polygon(y = scales::rescale(d$x,to = c(0,1)),
-                     x = 0.5 - scales::rescale(d$y,to = c(0,0.5)),
-                     gp = grid::gpar(
-                       col = ggplot2::alpha(data$colour %||% "black", data$alpha),
-                       fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
-                       lty = data$linetype %||% 1,
-                       lwd = lwd * .pt))
-}
+# #' @export
+# draw_key_violinLeft <- function(data, params, size) {
+#   if (is.null(data$size)) {
+#     data$size <- 0.5
+#   }
+#
+#   lwd <- min(data$size, min(size) / 4)
+#
+#   d <- stats::density(rep(0,20))
+#   grid::grid.polygon(y = scales::rescale(d$x,to = c(0,1)),
+#                      x = 0.5 - scales::rescale(d$y,to = c(0,0.5)),
+#                      gp = grid::gpar(
+#                        col = ggplot2::alpha(data$colour %||% "black", data$alpha),
+#                        fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
+#                        lty = data$linetype %||% 1,
+#                        lwd = lwd * .pt))
+# }
 
 # right legend
-#' @export
-draw_key_violinRight <- function(data, params, size) {
-  if (is.null(data$size)) {
-    data$size <- 0.5
-  }
-
-  lwd <- min(data$size, min(size) / 4)
-
-  d <- stats::density(rep(0,20))
-  grid::grid.polygon(y = rev(scales::rescale(d$x,to = c(0,1))),
-                     x = rev(scales::rescale(d$y,to = c(0,0.5)) + 0.5),
-                     gp = grid::gpar(
-                       col = ggplot2::alpha(data$colour %||% "black", data$alpha),
-                       fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
-                       lty = data$linetype %||% 1,
-                       lwd = lwd * .pt))
-}
+# #' @export
+# draw_key_violinRight <- function(data, params, size) {
+#   if (is.null(data$size)) {
+#     data$size <- 0.5
+#   }
+#
+#   lwd <- min(data$size, min(size) / 4)
+#
+#   d <- stats::density(rep(0,20))
+#   grid::grid.polygon(y = rev(scales::rescale(d$x,to = c(0,1))),
+#                      x = rev(scales::rescale(d$y,to = c(0,0.5)) + 0.5),
+#                      gp = grid::gpar(
+#                        col = ggplot2::alpha(data$colour %||% "black", data$alpha),
+#                        fill = ggplot2::alpha(data$fill %||% "grey30", data$alpha),
+#                        lty = data$linetype %||% 1,
+#                        lwd = lwd * .pt))
+# }
 
 # ==============================================================================
 #' @title geom_jjviolin
@@ -212,7 +212,8 @@ GeomJjviolin <- ggplot2::ggproto("GeomJjviolin", ggplot2::Geom,
                                  },
 
                                  # plot legend
-                                 draw_key = draw_key_violinFull
+                                 # draw_key = draw_key_violinFull
+                                 draw_key = ggplot2::draw_key_polygon
 )
 
 

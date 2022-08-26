@@ -4,94 +4,94 @@ globalVariables(c("%||%",".pt"))
 # draw legend function
 
 # full legend
-#' @export
-draw_key_boxFull <- function(data, params, size) {
-  grid::grobTree(
-    grid::linesGrob(c(0.4,0.6), 0.1),
-    grid::linesGrob(0.5, c(0.1, 0.25)),
-
-    grid::linesGrob(c(0.4,0.6), 0.9),
-    grid::linesGrob(0.5, c(0.75, 0.9)),
-
-    grid::rectGrob(height = 0.5, width = 0.75),
-    grid::linesGrob(c(0.125, 0.875), 0.5),
-    gp = grid::gpar(
-      col = ggplot2::alpha(data$colour %||% "grey20", data$alpha),
-      fill = ggplot2::alpha(data$fill %||% "white", data$alpha),
-      lwd = 0.5 * .pt,
-      lty = data$linetype %||% 1
-    )
-  )
-}
+# #' @export
+# draw_key_boxFull <- function(data, params, size) {
+#   grid::grobTree(
+#     grid::linesGrob(c(0.4,0.6), 0.1),
+#     grid::linesGrob(0.5, c(0.1, 0.25)),
+#
+#     grid::linesGrob(c(0.4,0.6), 0.9),
+#     grid::linesGrob(0.5, c(0.75, 0.9)),
+#
+#     grid::rectGrob(height = 0.5, width = 0.75),
+#     grid::linesGrob(c(0.125, 0.875), 0.5),
+#     gp = grid::gpar(
+#       col = ggplot2::alpha(data$colour %||% "grey20", data$alpha),
+#       fill = ggplot2::alpha(data$fill %||% "white", data$alpha),
+#       lwd = 0.5 * .pt,
+#       lty = data$linetype %||% 1
+#     )
+#   )
+# }
 
 # left legend
-#' @export
-draw_key_boxLeft <- function(data, params, size) {
-  grid::grobTree(
-    grid::linesGrob(c(0.4,0.5), 0.1),
-    grid::linesGrob(0.5, c(0.1, 0.25)),
-
-    grid::linesGrob(c(0.4,0.5), 0.9),
-    grid::linesGrob(0.5, c(0.75, 0.9)),
-
-    grid::rectGrob(x = 0.3125,height = 0.5, width = 0.375),
-    grid::linesGrob(c(0.125, 0.5), 0.5),
-    gp = grid::gpar(
-      col = ggplot2::alpha(data$colour %||% "grey20", data$alpha),
-      fill = ggplot2::alpha(data$fill %||% "white", data$alpha),
-      lwd = 0.5 * .pt,
-      lty = data$linetype %||% 1
-    )
-  )
-}
+# #' @export
+# draw_key_boxLeft <- function(data, params, size) {
+#   grid::grobTree(
+#     grid::linesGrob(c(0.4,0.5), 0.1),
+#     grid::linesGrob(0.5, c(0.1, 0.25)),
+#
+#     grid::linesGrob(c(0.4,0.5), 0.9),
+#     grid::linesGrob(0.5, c(0.75, 0.9)),
+#
+#     grid::rectGrob(x = 0.3125,height = 0.5, width = 0.375),
+#     grid::linesGrob(c(0.125, 0.5), 0.5),
+#     gp = grid::gpar(
+#       col = ggplot2::alpha(data$colour %||% "grey20", data$alpha),
+#       fill = ggplot2::alpha(data$fill %||% "white", data$alpha),
+#       lwd = 0.5 * .pt,
+#       lty = data$linetype %||% 1
+#     )
+#   )
+# }
 
 # right legend
-#' @export
-draw_key_boxRight <- function(data, params, size) {
-  grid::grobTree(
-    grid::linesGrob(c(0.5,0.6), 0.1),
-    grid::linesGrob(0.5, c(0.1, 0.25)),
-
-    grid::linesGrob(c(0.5,0.6), 0.9),
-    grid::linesGrob(0.5, c(0.75, 0.9)),
-
-    grid::rectGrob(x = 0.6875,height = 0.5, width = 0.375),
-    grid::linesGrob(c(0.5, 0.875), 0.5),
-    gp = grid::gpar(
-      col = ggplot2::alpha(data$colour %||% "grey20", data$alpha),
-      fill = ggplot2::alpha(data$fill %||% "white", data$alpha),
-      lwd = 0.5 * .pt,
-      lty = data$linetype %||% 1
-    )
-  )
-}
+# #' @export
+# draw_key_boxRight <- function(data, params, size) {
+#   grid::grobTree(
+#     grid::linesGrob(c(0.5,0.6), 0.1),
+#     grid::linesGrob(0.5, c(0.1, 0.25)),
+#
+#     grid::linesGrob(c(0.5,0.6), 0.9),
+#     grid::linesGrob(0.5, c(0.75, 0.9)),
+#
+#     grid::rectGrob(x = 0.6875,height = 0.5, width = 0.375),
+#     grid::linesGrob(c(0.5, 0.875), 0.5),
+#     gp = grid::gpar(
+#       col = ggplot2::alpha(data$colour %||% "grey20", data$alpha),
+#       fill = ggplot2::alpha(data$fill %||% "white", data$alpha),
+#       lwd = 0.5 * .pt,
+#       lty = data$linetype %||% 1
+#     )
+#   )
+# }
 
 # split legend
-#' @export
-draw_key_boxSplit <- function(data, params, size) {
-  grid::grobTree(
-    grid::linesGrob(c(0.3,0.4), 0.1),
-    grid::linesGrob(c(0.3,0.4), 0.9),
-    grid::linesGrob(0.4, c(0.1, 0.25)),
-    grid::linesGrob(0.4, c(0.75, 0.9)),
-    grid::rectGrob(x = 0.2125,height = 0.5, width = 0.375),
-    grid::linesGrob(c(0.025, 0.4), 0.5),
-
-    grid::linesGrob(c(0.6,0.7), 0.1),
-    grid::linesGrob(c(0.6,0.7), 0.9),
-    grid::linesGrob(0.6, c(0.1, 0.25)),
-    grid::linesGrob(0.6, c(0.75, 0.9)),
-    grid::rectGrob(x = 0.7875,height = 0.5, width = 0.375),
-    grid::linesGrob(c(0.6, 0.975), 0.5),
-
-    gp = grid::gpar(
-      col = ggplot2::alpha(data$colour %||% "grey20", data$alpha),
-      fill = ggplot2::alpha(data$fill %||% "white", data$alpha),
-      lwd = 0.5 * .pt,
-      lty = data$linetype %||% 1
-    )
-  )
-}
+# #' @export
+# draw_key_boxSplit <- function(data, params, size) {
+#   grid::grobTree(
+#     grid::linesGrob(c(0.3,0.4), 0.1),
+#     grid::linesGrob(c(0.3,0.4), 0.9),
+#     grid::linesGrob(0.4, c(0.1, 0.25)),
+#     grid::linesGrob(0.4, c(0.75, 0.9)),
+#     grid::rectGrob(x = 0.2125,height = 0.5, width = 0.375),
+#     grid::linesGrob(c(0.025, 0.4), 0.5),
+#
+#     grid::linesGrob(c(0.6,0.7), 0.1),
+#     grid::linesGrob(c(0.6,0.7), 0.9),
+#     grid::linesGrob(0.6, c(0.1, 0.25)),
+#     grid::linesGrob(0.6, c(0.75, 0.9)),
+#     grid::rectGrob(x = 0.7875,height = 0.5, width = 0.375),
+#     grid::linesGrob(c(0.6, 0.975), 0.5),
+#
+#     gp = grid::gpar(
+#       col = ggplot2::alpha(data$colour %||% "grey20", data$alpha),
+#       fill = ggplot2::alpha(data$fill %||% "white", data$alpha),
+#       lwd = 0.5 * .pt,
+#       lty = data$linetype %||% 1
+#     )
+#   )
+# }
 
 # ==============================================================================
 
@@ -176,7 +176,8 @@ GeomJjboxplot <- ggplot2::ggproto("GeomJjboxplot", ggplot2::Geom,
                                                              type = "full"),
 
                                   # plot legend
-                                  draw_key = draw_key_boxFull,
+                                  # draw_key = draw_key_boxFull,
+                                  draw_key = ggplot2::draw_key_boxplot,
 
                                   # draw_panel
                                   draw_group = function(data, panel_scales, coord,
