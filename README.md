@@ -1,4 +1,4 @@
-# jjPlot <img src="man/jjPlot-logo.svg" align="right" height="200" />
+# jjPlot <img src="man/jjplot-logo.svg" align="right" height="200" />
 
 <!-- badges: start -->
 
