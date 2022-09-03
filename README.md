@@ -1,9 +1,10 @@
-# jjPlot
+# jjPlot <img src="man/jjPlot-logo.svg" align="right" height="200" />
 
 <!-- badges: start -->
-<!-- badges: end -->
 
 This **jjPlot** package may includes some funny **geom/stat** layer function to produce enjoyable graphs which is mainly based on **ggplot2**. Besides it will record my learning experience about **ggplot2** package. I will also add more useful functions to this package in the future.
+
+<!-- badges: end -->
 
 ## Installation
 
