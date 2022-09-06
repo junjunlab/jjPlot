@@ -82,7 +82,7 @@ geom_jjPointPie <- function(mapping = NULL, data = NULL,
 GeomJjPointPie <- ggplot2::ggproto("GeomJjPointPie", ggplot2::Geom,
                                    required_aes = c("x", "y", "pievar"),
 
-                                   default_aes = aes(fill = "#339933",
+                                   default_aes = aes(fill = NA, # "#339933"
                                                      filltype = NULL,
                                                      explode = NULL,
                                                      colour = "black",
