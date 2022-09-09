@@ -23,6 +23,7 @@
 #' @param na.rm na.rm
 #' @param show.legend show.legend
 #' @param inherit.aes inherit.aes
+#' @param seq.length seq.length
 #'
 #' @import dplyr
 #'
@@ -44,6 +45,7 @@ geom_jjPointPie <- function(mapping = NULL, data = NULL,
                             ratio.digit = 2,
                             text.hjust = 0.5,
                             text.vjust = 0.5,
+                            seq.length = 500,
                             na.rm = FALSE,
                             show.legend = TRUE,
                             inherit.aes = TRUE) {
@@ -70,6 +72,7 @@ geom_jjPointPie <- function(mapping = NULL, data = NULL,
       ratio.digit = ratio.digit,
       text.hjust = text.hjust,
       text.vjust = text.vjust,
+      seq.length = seq.length,
       ...
     )
   )
@@ -108,10 +111,11 @@ GeomJjPointPie <- ggplot2::ggproto("GeomJjPointPie", ggplot2::Geom,
                                                          text.size = 5,
                                                          ratio.digit = 2,
                                                          text.hjust = 0.5,
-                                                         text.vjust = 0.5) {
+                                                         text.vjust = 0.5,
+                                                         seq.length = 500) {
 
                                      # pie.dat function
-                                     pie.dat <-  function(theta, start, length = 100) {
+                                     pie.dat <-  function(theta, start, length = seq.length) {
                                        k = seq(pi / 2 - start, pi / 2 - theta - start, length = 0.5 * length * abs(theta) / pi)
                                        x = c(0, cos(k) / 2, 0)
                                        y = c(0, sin(k) / 2, 0)
@@ -119,7 +123,7 @@ GeomJjPointPie <- ggplot2::ggproto("GeomJjPointPie", ggplot2::Geom,
                                      }
 
                                      # pie.dat.explode function
-                                     pie.dat.explode <- function(theta, start, length = 100) {
+                                     pie.dat.explode <- function(theta, start, length = seq.length) {
                                        k = seq(pi / 2 - start, pi / 2 - theta - start, length = 0.25 * length * abs(theta) / pi)
                                        shift.y = explode.dist*cos((theta + start*2)*0.5)
                                        shift.x = explode.dist*sin((theta + start*2)*0.5)

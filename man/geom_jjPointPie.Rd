@@ -23,6 +23,7 @@ geom_jjPointPie(
   ratio.digit = 2,
   text.hjust = 0.5,
   text.vjust = 0.5,
+  seq.length = 500,
   na.rm = FALSE,
   show.legend = TRUE,
   inherit.aes = TRUE
@@ -64,6 +65,8 @@ geom_jjPointPie(
 \item{text.hjust}{text.hjust}
 
 \item{text.vjust}{text.vjust}
+
+\item{seq.length}{seq.length}
 
 \item{na.rm}{na.rm}
 
