@@ -1,6 +1,6 @@
 Package: jjPlot
 Title: This package is designed to draw some funny plot based on ggplot
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person("Junjun", "Lao", , "3219030654@stu.cpu.edu.cn", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
