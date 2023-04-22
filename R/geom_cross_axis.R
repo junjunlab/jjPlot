@@ -125,34 +125,24 @@ GeomCrossAxis <- ggplot2::ggproto("GeomCrossAxis", ggplot2::Geom,
 
                                     # ==========================================
                                     # x axis grob
-                                    x_axis <- segmentsGrob(x0 = 0,
-                                                           x1 = 1,
-                                                           y0 = unique(xline_y),
-                                                           y1 = unique(xline_y),
-                                                           gp = grid::gpar(
-                                                             col = colour,
-                                                             fill = arrow.fill,
-                                                             lwd = coords$linewidth * .pt,
-                                                             lty = coords$linetype,
-                                                             lineend = lineend,
-                                                             linejoin = linejoin
-                                                           ),
-                                                           default.units = "native",
-                                                           arrow = arrow)
+                                    x_axis <- grid::segmentsGrob(x0 = 0,
+                                                                 x1 = 1,
+                                                                 y0 = unique(xline_y),
+                                                                 y1 = unique(xline_y),
+                                                                 gp = grid::gpar(
+                                                                   col = colour,
+                                                                   fill = arrow.fill,
+                                                                   lwd = coords$linewidth * .pt,
+                                                                   lty = coords$linetype,
+                                                                   lineend = lineend,
+                                                                   linejoin = linejoin
+                                                                 ),
+                                                                 default.units = "native",
+                                                                 arrow = arrow)
 
-                                    x_axis_bk <- segmentsGrob(x0 = bk_x,
-                                                              x1 = bk_x,
-                                                              y0 = bk.len + unique(xline_y),
-                                                              y1 = unique(xline_y),
-                                                              gp = grid::gpar(col = colour,
-                                                                              lwd = coords$linewidth * .pt,
-                                                                              lty = coords$linetype),
-                                                              default.units = "native",
-                                                              arrow = NULL)
-
-                                    x_axis_bk_minor <- segmentsGrob(x0 = minor_x_bk,
-                                                                    x1 = minor_x_bk,
-                                                                    y0 = bk.len*0.5 + unique(xline_y),
+                                    x_axis_bk <- grid::segmentsGrob(x0 = bk_x,
+                                                                    x1 = bk_x,
+                                                                    y0 = bk.len + unique(xline_y),
                                                                     y1 = unique(xline_y),
                                                                     gp = grid::gpar(col = colour,
                                                                                     lwd = coords$linewidth * .pt,
@@ -160,57 +150,67 @@ GeomCrossAxis <- ggplot2::ggproto("GeomCrossAxis", ggplot2::Geom,
                                                                     default.units = "native",
                                                                     arrow = NULL)
 
-                                    x_axis_label <- textGrob(label = panel_scales$x$get_labels(),
-                                                             x = bk_x,
-                                                             y = bk.len + unique(xline_y) + label.shift,
-                                                             gp = grid::gpar(col = colour,
-                                                                             fontsize = label.size*.pt,
-                                                                             fontface = fontface),
-                                                             default.units = "native")
+                                    x_axis_bk_minor <- grid::segmentsGrob(x0 = minor_x_bk,
+                                                                          x1 = minor_x_bk,
+                                                                          y0 = bk.len*0.5 + unique(xline_y),
+                                                                          y1 = unique(xline_y),
+                                                                          gp = grid::gpar(col = colour,
+                                                                                          lwd = coords$linewidth * .pt,
+                                                                                          lty = coords$linetype),
+                                                                          default.units = "native",
+                                                                          arrow = NULL)
+
+                                    x_axis_label <- grid::textGrob(label = panel_scales$x$get_labels(),
+                                                                   x = bk_x,
+                                                                   y = bk.len + unique(xline_y) + label.shift,
+                                                                   gp = grid::gpar(col = colour,
+                                                                                   fontsize = label.size*.pt,
+                                                                                   fontface = fontface),
+                                                                   default.units = "native")
                                     # ==========================================
                                     # y axis grob
-                                    y_axis <- segmentsGrob(x0 = unique(xline_x),
-                                                           x1 = unique(xline_x),
-                                                           y0 = 0,
-                                                           y1 = 1,
-                                                           gp = grid::gpar(
-                                                             col = colour,
-                                                             fill = arrow.fill,
-                                                             lwd = coords$linewidth * .pt,
-                                                             lty = coords$linetype,
-                                                             lineend = lineend,
-                                                             linejoin = linejoin
-                                                           ),
-                                                           default.units = "native",
-                                                           arrow = arrow)
+                                    y_axis <- grid::segmentsGrob(x0 = unique(xline_x),
+                                                                 x1 = unique(xline_x),
+                                                                 y0 = 0,
+                                                                 y1 = 1,
+                                                                 gp = grid::gpar(
+                                                                   col = colour,
+                                                                   fill = arrow.fill,
+                                                                   lwd = coords$linewidth * .pt,
+                                                                   lty = coords$linetype,
+                                                                   lineend = lineend,
+                                                                   linejoin = linejoin
+                                                                 ),
+                                                                 default.units = "native",
+                                                                 arrow = arrow)
 
-                                    y_axis_bk <- segmentsGrob(x0 = unique(xline_x),
-                                                              x1 = bk.len + unique(xline_x),
-                                                              y0 = bk_y,
-                                                              y1 = bk_y,
-                                                              gp = grid::gpar(col = colour,
-                                                                              lwd = coords$linewidth * .pt,
-                                                                              lty = coords$linetype),
-                                                              default.units = "native",
-                                                              arrow = NULL)
-
-                                    y_axis_bk_minor <- segmentsGrob(x0 = unique(xline_x),
-                                                                    x1 = bk.len*0.5 + unique(xline_x),
-                                                                    y0 = minor_y_bk,
-                                                                    y1 = minor_y_bk,
+                                    y_axis_bk <- grid::segmentsGrob(x0 = unique(xline_x),
+                                                                    x1 = bk.len + unique(xline_x),
+                                                                    y0 = bk_y,
+                                                                    y1 = bk_y,
                                                                     gp = grid::gpar(col = colour,
                                                                                     lwd = coords$linewidth * .pt,
                                                                                     lty = coords$linetype),
                                                                     default.units = "native",
                                                                     arrow = NULL)
 
-                                    y_axis_label <- textGrob(label = panel_scales$y$get_labels(),
-                                                             x = bk.len + unique(xline_x) + label.shift,
-                                                             y = bk_y,
-                                                             gp = grid::gpar(col = colour,
-                                                                             fontsize = label.size*.pt,
-                                                                             fontface = fontface),
-                                                             default.units = "native")
+                                    y_axis_bk_minor <- grid::segmentsGrob(x0 = unique(xline_x),
+                                                                          x1 = bk.len*0.5 + unique(xline_x),
+                                                                          y0 = minor_y_bk,
+                                                                          y1 = minor_y_bk,
+                                                                          gp = grid::gpar(col = colour,
+                                                                                          lwd = coords$linewidth * .pt,
+                                                                                          lty = coords$linetype),
+                                                                          default.units = "native",
+                                                                          arrow = NULL)
+
+                                    y_axis_label <- grid::textGrob(label = panel_scales$y$get_labels(),
+                                                                   x = bk.len + unique(xline_x) + label.shift,
+                                                                   y = bk_y,
+                                                                   gp = grid::gpar(col = colour,
+                                                                                   fontsize = label.size*.pt,
+                                                                                   fontface = fontface),
+                                                                   default.units = "native")
 
                                     # ==========================================
                                     # return
