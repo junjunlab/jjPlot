@@ -30,6 +30,8 @@
 #' @param na.rm description
 #' @param ... description
 #'
+#' @importFrom grid segmentsGrob textGrob
+#'
 #' @examples
 #' library(ggplot2)
 #'
@@ -102,7 +104,6 @@ GeomCrossAxis <- ggplot2::ggproto("GeomCrossAxis", ggplot2::Geom,
                                     # rescale data
                                     bk_x = scales::rescale(bk_x,from = panel_scales$x.range)
                                     xline_y <- scales::rescale(xline_y,from = panel_scales$y.range)
-                                    print(xline_y)
 
                                     # process Y axis data
                                     bk_y <- panel_scales$y$breaks
