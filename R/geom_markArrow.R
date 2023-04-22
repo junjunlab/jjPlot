@@ -1,4 +1,5 @@
 #' geom_markArrow
+#' @author Jun Zhang
 #'
 #' An extension of ggplot2's GeomPath that adds an arrowhead to the end of a line.
 #'

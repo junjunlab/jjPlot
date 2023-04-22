@@ -37,21 +37,26 @@ StatJjboxplot <- ggplot2::ggproto("StatJjboxplot", ggplot2::Stat,
                                   compute_group = function(data, scales) {
                                     probs <- c(0, 0.25, 0.5, 0.75, 1)
                                     qq <- quantile(data$y, probs, na.rm = TRUE)
-                                    out <- qq %>% as.list %>% data.frame
-                                    names(out) <- c("ymin", "lower", "middle",
-                                                    "upper", "ymax")
+                                    names(qq) <- NULL
+                                    out <- data.frame("ymin" = qq[1], "lower" = qq[2], "middle" = qq[3],
+                                                      "upper" = qq[4], "ymax" = qq[5])
+
 
                                     # include second max/min value
+                                    val <- unique(data$y)
+                                    val <- val[order(val)]
+
                                     out <- out %>% dplyr::mutate(iqr = upper - lower) %>%
                                       dplyr::mutate(ymin = ifelse(lower - iqr*1.5 <= ymin,
                                                                   ymin,
-                                                                  lower - iqr*1.5),
+                                                                  val[2]),
                                                     ymax = ifelse(upper + iqr*1.5 >= ymax,
                                                                   ymax,
-                                                                  upper + iqr*1.5))
+                                                                  val[length(val)-1]))
 
                                     # filter outliers
-                                    outlier <- data$y > out$upper + out$iqr*1.5 | data$y < out$lower - out$iqr*1.5
+                                    # outlier <- data$y > out$upper + out$iqr*1.5 | data$y < out$lower - out$iqr*1.5
+                                    data$y > out$ymax | data$y < out$ymin
 
                                     # save as list
                                     out$outlier_data <- list(data$y[outlier])

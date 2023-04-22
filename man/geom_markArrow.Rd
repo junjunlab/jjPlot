@@ -90,5 +90,10 @@ corner relative to the path; one of "left_b", "right_b", "left_t", or "right_t".
 An object of class \code{GeomMarkArrow}.
 }
 \description{
+geom_markArrow
+}
+\author{
+Jun Zhang
+
 An extension of ggplot2's GeomPath that adds an arrowhead to the end of a line.
 }
