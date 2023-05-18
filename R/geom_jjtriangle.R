@@ -68,10 +68,11 @@ GeomJjtriangle <- ggplot2::ggproto("GeomJjtriangle", ggplot2::Geom,
 
                                      # Transform the data
                                      coords <- coord$transform(data, panel_scales) %>%
-                                       dplyr::mutate(x0 = scales::rescale(x0,from = panel_scales$x.range),
-                                                     x1 = scales::rescale(x1,from = panel_scales$x.range),
-                                                     y0 = scales::rescale(y0,from = panel_scales$y.range),
-                                                     y1 = scales::rescale(y1,from = panel_scales$y.range))
+                                       dplyr::mutate(
+                                         # x0 = scales::rescale(x0,from = panel_scales$x.range),
+                                         x1 = scales::rescale(x1,from = panel_scales$x.range),
+                                         # y0 = scales::rescale(y0,from = panel_scales$y.range),
+                                         y1 = scales::rescale(y1,from = panel_scales$y.range))
 
                                      # define coordinates
                                      if(rect == FALSE){
