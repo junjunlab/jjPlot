@@ -194,3 +194,21 @@ draw_key_violinRight <- function(data, params, size) {
                        lty = data$linetype %||% 1,
                        lwd = lwd * .pt))
 }
+
+#' @rdname draw_key
+#' @export
+draw_number_circle <- function(data,params,size){
+  grobTree(pointsGrob(x = 0.5,y = 0.5,
+                      size = unit(2,"char"),
+                      pch = 16,
+                      gp = gpar(
+                        col = alpha(data$colour %||% "grey50",data$alpha),
+                        fill = alpha(data$fill %||% "grey50",data$alpha),
+                        lwd = (data$linewidth %||% 0.5)* .pt,
+                        lty = data$linetype %||% 1)),
+           textGrob(label = data$label,
+                    x = rep(0.5,3),y = rep(0.5,3),
+                    gp = gpar(col = "black"))
+  )
+
+}

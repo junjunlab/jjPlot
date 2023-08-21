@@ -10,6 +10,7 @@
 \alias{draw_key_violinSplit}
 \alias{draw_key_violinLeft}
 \alias{draw_key_violinRight}
+\alias{draw_number_circle}
 \title{Key glyphs for legends}
 \usage{
 draw_key_boxFull(data, params, size)
@@ -27,6 +28,8 @@ draw_key_violinSplit(data, params, size)
 draw_key_violinLeft(data, params, size)
 
 draw_key_violinRight(data, params, size)
+
+draw_number_circle(data, params, size)
 }
 \arguments{
 \item{data}{A single row data frame containing the scaled aesthetics to
