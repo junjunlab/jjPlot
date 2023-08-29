@@ -49,6 +49,7 @@ grid.xaxis2 <- function(at = NULL,
     text.y = unit(abs(tick.len) + abs(label.space),"lines") + unit(1, "npc")
   }
 
+  grid.segments(x0 = 0,x1 = 1,y0 = 0,y1 = 0)
   grid.segments(x0 = unit(at, "native"),
                 x1 = unit(at, "native"),
                 y0 = tck.y0,
@@ -115,6 +116,7 @@ grid.yaxis2 <- function(at = NULL,
     text.just = "left"
   }
 
+  grid.segments(x0 = 0,x1 = 0,y0 = 0,y1 = 1)
   grid.segments(y0 = unit(at, "native"),
                 y1 = unit(at, "native"),
                 x0 = tck.x0,
