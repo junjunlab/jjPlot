@@ -30,7 +30,7 @@ grid.xaxis2 <- function(at = NULL,
                         label.size = 12){
   # labels and ticks
   if(is.null(at) || is.null(labels)){
-    at <- grid.pretty(current.viewport()$xscale,n = 5)
+    at <- grid.pretty(current.viewport()$xscale,n = breaks)
     labels <- as.character(at)
   }else{
     at <- at
@@ -95,7 +95,7 @@ grid.yaxis2 <- function(at = NULL,
                         label.size = 12){
   # labels and ticks
   if(is.null(at) || is.null(labels)){
-    at <- grid.pretty(current.viewport()$yscale,n = 5)
+    at <- grid.pretty(current.viewport()$yscale,n = breaks)
     labels <- as.character(at)
   }else{
     at <- at
