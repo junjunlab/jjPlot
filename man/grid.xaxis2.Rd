@@ -11,7 +11,8 @@ grid.xaxis2(
   tick.len = 0.5,
   label.space = 0.5,
   side = c("bottom", "top"),
-  rot = 0
+  rot = 0,
+  label.size = 12
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ grid.xaxis2(
 \item{side}{character specifying the side to place the axis ("bottom" or "top").}
 
 \item{rot}{numeric specifying the rotation angle for the tick mark labels.}
+
+\item{label.size}{numeric specifying the axis label text size, default 12.}
 }
 \description{
 grid.xaxis2 function
@@ -35,5 +38,5 @@ grid.xaxis2 function
 \author{
 Jun Zhang
 
-This function creates a secondary x-axis in a graphical grid.
+This function creates a x-axis in a graphical grid.
 }

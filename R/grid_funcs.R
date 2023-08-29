@@ -1,7 +1,7 @@
 #' grid.xaxis2 function
 #' @author Jun Zhang
 #'
-#' This function creates a secondary x-axis in a graphical grid.
+#' This function creates a x-axis in a graphical grid.
 #'
 #' @param at numeric vector specifying the locations of tick marks on the axis.
 #' @param breaks integer specifying the number of breaks on the axis.
@@ -10,12 +10,14 @@
 #' @param label.space numeric specifying the space between the tick marks and labels.
 #' @param side character specifying the side to place the axis ("bottom" or "top").
 #' @param rot numeric specifying the rotation angle for the tick mark labels.
+#' @param label.size numeric specifying the axis label text size, default 12.
 #'
 #' @importFrom grid grid.pretty
 #' @importFrom grid grid.segments
 #' @importFrom grid grid.text
 #' @importFrom grid current.viewport
 #' @importFrom grid unit
+#' @importFrom grid gpar
 #'
 #' @export
 grid.xaxis2 <- function(at = NULL,
@@ -24,7 +26,8 @@ grid.xaxis2 <- function(at = NULL,
                         tick.len = 0.5,
                         label.space = 0.5,
                         side = c("bottom","top"),
-                        rot = 0){
+                        rot = 0,
+                        label.size = 12){
   # labels and ticks
   if(is.null(at) || is.null(labels)){
     at <- grid.pretty(current.viewport()$xscale,n = 5)
@@ -54,14 +57,15 @@ grid.xaxis2 <- function(at = NULL,
   grid.text(label = labels,
             x = unit(at, "native"),
             y = text.y,
-            rot = rot)
+            rot = rot,
+            gp = gpar(fontsize = label.size))
 }
 
 
 #' grid.yaxis2 function
 #' @author Jun Zhang
 #'
-#' This function creates a secondary y-axis in a graphical grid.
+#' This function creates a y-axis in a graphical grid.
 #'
 #' @param at numeric vector specifying the locations of tick marks on the axis.
 #' @param breaks integer specifying the number of breaks on the axis.
@@ -70,12 +74,14 @@ grid.xaxis2 <- function(at = NULL,
 #' @param label.space numeric specifying the space between the tick marks and labels.
 #' @param side character specifying the side to place the axis ("left" or "right").
 #' @param rot numeric specifying the rotation angle for the tick mark labels.
+#' @param label.size numeric specifying the axis label text size, default 12.
 #'
 #' @importFrom grid grid.pretty
 #' @importFrom grid grid.segments
 #' @importFrom grid grid.text
 #' @importFrom grid current.viewport
 #' @importFrom grid unit
+#' @importFrom grid gpar
 #'
 #' @export
 grid.yaxis2 <- function(at = NULL,
@@ -84,7 +90,8 @@ grid.yaxis2 <- function(at = NULL,
                         tick.len = 0.5,
                         label.space = 0.25,
                         side = c("left","right"),
-                        rot = 0){
+                        rot = 0,
+                        label.size = 12){
   # labels and ticks
   if(is.null(at) || is.null(labels)){
     at <- grid.pretty(current.viewport()$yscale,n = 5)
@@ -117,5 +124,6 @@ grid.yaxis2 <- function(at = NULL,
             y = unit(at, "native"),
             x = text.x,
             rot = rot,
-            just = text.just)
+            just = text.just,
+            gp = gpar(fontsize = label.size))
 }

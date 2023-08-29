@@ -11,7 +11,8 @@ grid.yaxis2(
   tick.len = 0.5,
   label.space = 0.25,
   side = c("left", "right"),
-  rot = 0
+  rot = 0,
+  label.size = 12
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ grid.yaxis2(
 \item{side}{character specifying the side to place the axis ("left" or "right").}
 
 \item{rot}{numeric specifying the rotation angle for the tick mark labels.}
+
+\item{label.size}{numeric specifying the axis label text size, default 12.}
 }
 \description{
 grid.yaxis2 function
@@ -35,5 +38,5 @@ grid.yaxis2 function
 \author{
 Jun Zhang
 
-This function creates a secondary y-axis in a graphical grid.
+This function creates a y-axis in a graphical grid.
 }
